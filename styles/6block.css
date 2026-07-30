@@ -5,7 +5,7 @@
 /* Делаем родительский контейнер фоновой зоны относительным */
 .shared-background-zone-2 {
     position: relative;
-    background-image: url('images/third_background.jpg');
+    background-image: url('../images/third_background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
