@@ -1,0 +1,71 @@
+/* Основной контейнер футера */
+.footer-container {
+    max-width: 900px; /* Немного расширим для удобного размещения 2 колонок */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Двухколоночный блок (Слева - Официально, Справа - Записка) */
+.footer-main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Выравнивание по центру высоты */
+    width: 100%;
+    gap: 30px; /* Отступ между левой и правой колонками */
+    margin-top: 10px;
+}
+
+/* Левая колонка */
+.footer-legal-box {
+    flex: 1;
+    text-align: left; /* Выравниваем текст по левому краю */
+}
+
+.footer-legal {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #c4b5fd;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Правая колонка (Записка в футере) */
+.footer-personal-note {
+    flex: 1.4; /* Даем блоку чуть больше места относительно левой колонки */
+    min-width: 440px; /* Фиксируем минимальную ширину, чтобы "настроение" гарантированно влезало */
+    max-width: 520px; /* Увеличиваем предельную ширину */
+    text-align: right;
+    padding: 14px 16px 14px 20px; /* Немного уменьшили правый padding */
+    background: rgba(255, 255, 255, 0.03);
+    border-right: 3px solid rgba(192, 132, 252, 0.6);
+    border-radius: 12px 0 0 12px;
+    box-sizing: border-box;
+}
+
+.footer-personal-note p {
+    margin: 3px 0;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #d8b4fe;
+    font-style: italic;
+    letter-spacing: 0.1px; /* Слегка уплотнили межбуквенный интервал */
+    opacity: 0.9;
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.2);
+    white-space: normal; /* Защита от лишних переносов */
+}
+
+/* На мобильных устройствах убираем жесткую ширину, чтобы не вылезала за экран */
+@media (max-width: 768px) {
+    .footer-personal-note {
+        min-width: auto;
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+        border-right: none;
+        border-bottom: 2px solid rgba(192, 132, 252, 0.6);
+        border-radius: 0 0 12px 12px;
+    }
+}
