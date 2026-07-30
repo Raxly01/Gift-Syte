@@ -24,7 +24,8 @@ body {
 
 .hero {
     /* Ставим картинку леса на фон первого экрана */
-    background-image: url('images/first_background.jpg');
+    
+    background-image: url('images/second_background.jpg');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
