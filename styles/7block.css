@@ -4,7 +4,7 @@
 .shared-background-zone-3 {
     position: relative;
     /* Ваши текущие стили фона */
-    background-image: url('../images/last_background.jpg');
+    background-image: url('images/last_background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
