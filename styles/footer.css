@@ -1,5 +1,5 @@
 /* ====================================================== */
-/* Основной блок футера (Розовый градиент)                */
+/* Основной блок футера (Ночной неоново-фиолетовый)        */
 /* ====================================================== */
 
 footer, 
@@ -8,14 +8,15 @@ footer,
     width: 100%;
     padding: 50px 20px;
     box-sizing: border-box;
-    z-index: 2; /* Поднимаем поверх фонового изображения */
+    z-index: 2;
     
-    /* Вертикальный градиент: светло-розовый сверху, глубокий тёмно-розовый снизу */
-    background: linear-gradient(180deg, #f472b6 0%, #be185d 50%, #831843 100%);
+    /* Градиент из тонов ночного леса и неоновой луны: 
+       от очень тёмного фиолетово-синего через бархатный пурпур к глубокой ночи */
+    background: linear-gradient(180deg, #120524 0%, #2a0845 50%, #0d021a 100%);
     
-    /* Верхняя светящаяся плашка и тень для мягкого стыка с блоком выше */
-    border-top: 1px solid rgba(244, 114, 182, 0.4);
-    box-shadow: 0 -10px 25px rgba(190, 24, 93, 0.3);
+    /* Деликатное сиреневое свечение сверху для связи с лунным светом */
+    border-top: 1px solid rgba(192, 132, 252, 0.3);
+    box-shadow: 0 -12px 30px rgba(168, 85, 247, 0.2);
 }
 
 /* Основной контейнер футера */
@@ -38,7 +39,7 @@ footer,
     margin-top: 10px;
 }
 
-/* Левая колонка (Официальная часть / Реестр) */
+/* Левая колонка (Официально) */
 .footer-legal-box {
     flex: 1;
     text-align: left;
@@ -47,10 +48,9 @@ footer,
 .footer-legal {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #fce7f3; /* Светло-розовый оттенок для отличного контраста */
+    color: #c4b5fd; /* Мягкий сиреневый оттенок */
     margin: 0;
-    opacity: 0.95;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
 }
 
 /* Правая колонка (Записка в футере) */
@@ -60,8 +60,8 @@ footer,
     max-width: 520px;
     text-align: right;
     padding: 14px 16px 14px 20px;
-    background: rgba(0, 0, 0, 0.15); /* Полупрозрачная подложка для выделения текста */
-    border-right: 3px solid #fbcfe8;
+    background: rgba(255, 255, 255, 0.04);
+    border-right: 3px solid rgba(192, 132, 252, 0.6);
     border-radius: 12px 0 0 12px;
     box-sizing: border-box;
 }
@@ -70,11 +70,11 @@ footer,
     margin: 3px 0;
     font-size: 0.82rem;
     line-height: 1.5;
-    color: #ffffff;
+    color: #d8b4fe;
     font-style: italic;
     letter-spacing: 0.1px;
-    opacity: 0.95;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.3);
     white-space: normal;
 }
 
@@ -103,7 +103,7 @@ footer,
         width: 100%;
         text-align: center;
         border-right: none;
-        border-bottom: 2px solid #fbcfe8;
+        border-bottom: 2px solid rgba(192, 132, 252, 0.6);
         border-radius: 0 0 12px 12px;
         padding: 12px 15px;
     }
