@@ -62,7 +62,7 @@
 .shared-background-zone {
     position: relative;
     /* Ваши текущие стили фона */
-    background-image: url('images/second_background.jpg');
+    background-image: url('../images/second_background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
