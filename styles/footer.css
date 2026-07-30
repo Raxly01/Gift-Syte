@@ -1,6 +1,26 @@
+/* ====================================================== */
+/* Основной блок футера (Розовый градиент)                */
+/* ====================================================== */
+
+footer, 
+.site-footer {
+    position: relative;
+    width: 100%;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    z-index: 2; /* Поднимаем поверх фонового изображения */
+    
+    /* Вертикальный градиент: светло-розовый сверху, глубокий тёмно-розовый снизу */
+    background: linear-gradient(180deg, #f472b6 0%, #be185d 50%, #831843 100%);
+    
+    /* Верхняя светящаяся плашка и тень для мягкого стыка с блоком выше */
+    border-top: 1px solid rgba(244, 114, 182, 0.4);
+    box-shadow: 0 -10px 25px rgba(190, 24, 93, 0.3);
+}
+
 /* Основной контейнер футера */
 .footer-container {
-    max-width: 900px; /* Немного расширим для удобного размещения 2 колонок */
+    max-width: 900px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -12,35 +32,36 @@
 .footer-main-content {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Выравнивание по центру высоты */
+    align-items: center;
     width: 100%;
-    gap: 30px; /* Отступ между левой и правой колонками */
+    gap: 30px;
     margin-top: 10px;
 }
 
-/* Левая колонка */
+/* Левая колонка (Официальная часть / Реестр) */
 .footer-legal-box {
     flex: 1;
-    text-align: left; /* Выравниваем текст по левому краю */
+    text-align: left;
 }
 
 .footer-legal {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #c4b5fd;
+    color: #fce7f3; /* Светло-розовый оттенок для отличного контраста */
     margin: 0;
-    opacity: 0.9;
+    opacity: 0.95;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Правая колонка (Записка в футере) */
 .footer-personal-note {
-    flex: 1.4; /* Даем блоку чуть больше места относительно левой колонки */
-    min-width: 440px; /* Фиксируем минимальную ширину, чтобы "настроение" гарантированно влезало */
-    max-width: 520px; /* Увеличиваем предельную ширину */
+    flex: 1.4;
+    min-width: 440px;
+    max-width: 520px;
     text-align: right;
-    padding: 14px 16px 14px 20px; /* Немного уменьшили правый padding */
-    background: rgba(255, 255, 255, 0.03);
-    border-right: 3px solid rgba(192, 132, 252, 0.6);
+    padding: 14px 16px 14px 20px;
+    background: rgba(0, 0, 0, 0.15); /* Полупрозрачная подложка для выделения текста */
+    border-right: 3px solid #fbcfe8;
     border-radius: 12px 0 0 12px;
     box-sizing: border-box;
 }
@@ -49,23 +70,41 @@
     margin: 3px 0;
     font-size: 0.82rem;
     line-height: 1.5;
-    color: #d8b4fe;
+    color: #ffffff;
     font-style: italic;
-    letter-spacing: 0.1px; /* Слегка уплотнили межбуквенный интервал */
-    opacity: 0.9;
-    text-shadow: 0 0 8px rgba(168, 85, 247, 0.2);
-    white-space: normal; /* Защита от лишних переносов */
+    letter-spacing: 0.1px;
+    opacity: 0.95;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    white-space: normal;
 }
 
-/* На мобильных устройствах убираем жесткую ширину, чтобы не вылезала за экран */
+/* ====================================================== */
+/* Адаптив под мобильные устройства                      */
+/* ====================================================== */
+
 @media (max-width: 768px) {
+    footer, 
+    .site-footer {
+        padding: 35px 15px;
+    }
+
+    .footer-main-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-legal-box {
+        text-align: center;
+    }
+
     .footer-personal-note {
         min-width: auto;
         max-width: 100%;
         width: 100%;
         text-align: center;
         border-right: none;
-        border-bottom: 2px solid rgba(192, 132, 252, 0.6);
+        border-bottom: 2px solid #fbcfe8;
         border-radius: 0 0 12px 12px;
+        padding: 12px 15px;
     }
 }
