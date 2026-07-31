@@ -16,25 +16,21 @@
 footer, 
 .site-footer {
     position: relative;
+    z-index: 10;
     width: 100%;
-    min-height: 450px;
+    min-height: 550px;
     padding: 60px 20px 40px;
     box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    /* Фоновое изображение + Затемняющий оверлей для читаемости текста */
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), 
-        url('../images/cake.avif'); /* Замени на имя и путь к своему файлу */
+    /* Сперва градиент, затем AVIF, а в самом конце — сплошной черный цвет (#000) */
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), 
+        url('../images/cake.avif'),
+        #000000; /* Этот цвет перекроет фиолетовый фон сайта! */
     
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
     background-repeat: no-repeat;
-    
-    /* Деликатная верхняя граница */
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Контейнер для текста */
