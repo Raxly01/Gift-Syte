@@ -4,10 +4,9 @@
 
 .footer-transition-space {
     width: 100%;
-    height: 180px;
-    /* Начинаем с темно-фиолетового тона финала леса и уходим в абсолютно чистый черный #000000 */
+    height: 90px; /* Сделали зазор в 2 раза меньше */
     background: linear-gradient(180deg, #110221 0%, #000000 100%);
-    margin-top: -2px; /* Перекрывает возможный зазор между блоками */
+    margin-top: -2px;
 }
 
 /* ====================================================== */
@@ -37,23 +36,23 @@ footer,
     opacity: 0.75;
 }
 
-/* Жесткий сброс рамок для Tenor: сбрасываем aspect-ratio и растягиваем */
+/* Выравнивание гифки Tenor внутри футера */
 .footer-gif-bg .tenor-gif-embed,
 .footer-gif-bg .tenor-gif-embed > div,
 .footer-gif-bg iframe,
 .footer-gif-bg img {
     position: absolute !important;
-    top: 50% !important;
+    top: 38% !important; /* Опускаем гифку ниже, чтобы показать торт, а не только свечку */
     left: 50% !important;
-    transform: translate(-50%, -50%) scale(1.15) !important; /* Центрируем и слегка увеличиваем */
-    width: 100vw !important; /* Растягиваем на всю ширину окна браузера */
-    height: 100% !important;
+    transform: translate(-50%, -50%) scale(1.1) !important;
+    width: 100vw !important;
+    height: 120% !important; /* Даём запас по высоте */
     max-width: none !important;
     max-height: none !important;
     min-width: 100% !important;
     min-height: 100% !important;
-    object-fit: cover !important; /* Заполняем пространство без черных полей по бокам */
-    padding-bottom: 0 !important; /* Отключаем паддинги, через которые Tenor считывает пропорции */
+    object-fit: cover !important;
+    padding-bottom: 0 !important;
 }
 
 /* Затемняющий слой над гифкой для идеальной читаемости текста */
@@ -198,8 +197,8 @@ footer,
 .site-footer {
     position: relative;
     width: 100%;
-    min-height: 420px; /* Фиксируем комфортную минимальную высоту */
-    padding: 70px 20px 50px; /* Увеличили внутренние отступы сверху и снизу */
+    min-height: 480px; /* Увеличили высоту, чтобы торт полностью влез */
+    padding: 60px 20px 40px;
     box-sizing: border-box;
     overflow: hidden;
     background: #000000;
