@@ -4,13 +4,12 @@
 
 .footer-transition-space {
     width: 100%;
-    height: 180px; /* Высота буферной зоны (можно регулировать под себя) */
-    /* Плавный уход из цвета предыдущего блока #120524 в глубокий чёрный #000000 */
+    height: 180px; /* Зазор-переход */
     background: linear-gradient(180deg, #120524 0%, #000000 100%);
 }
 
 /* ====================================================== */
-/* 2. Основной блок футера (Фон-гифка + подложка)         */
+/* 2. Основной блок футера                                */
 /* ====================================================== */
 
 footer, 
@@ -19,22 +18,39 @@ footer,
     width: 100%;
     padding: 60px 20px 40px;
     box-sizing: border-box;
-    z-index: 2;
-    
-    /* Указываем гифку на фон и центрируем её */
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), /* Полупрозрачное затемнение над гифкой */
-        url('../images/cake.gif'); /* Замени путь на актуальное имя/расположение твоей гифки */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    /* Верхняя деликатная граница для фиксации стыка */
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden; /* Обрезаем всё, что выходит за пределы */
+    background: #000000;
 }
 
-/* Контейнер футера */
+/* Фоновый контейнер с гифкой Tenor */
+.footer-gif-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    min-width: 600px;
+    opacity: 0.65; /* Регулируй яркость самой гифки здесь */
+    z-index: 1;
+    pointer-events: none; /* Чтобы гифка не перехватывала клики мышкой */
+}
+
+/* Затемняющий слой над гифкой для идеальной читаемости текста */
+.footer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Контейнер с текстом (поднимаем над гифкой) */
 .footer-container {
+    position: relative;
+    z-index: 3;
     max-width: 900px;
     margin: 0 auto;
     display: flex;
@@ -43,9 +59,9 @@ footer,
     gap: 20px;
 }
 
-/* Бейдж сверху */
+/* Элементы контента */
 .footer-badge {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(192, 132, 252, 0.4);
     color: #e9d5ff;
     padding: 6px 16px;
@@ -54,7 +70,6 @@ footer,
     backdrop-filter: blur(5px);
 }
 
-/* Двухколоночный блок */
 .footer-main-content {
     display: flex;
     justify-content: space-between;
@@ -64,7 +79,6 @@ footer,
     margin-top: 10px;
 }
 
-/* Левая колонка */
 .footer-legal-box {
     flex: 1;
     text-align: left;
@@ -76,17 +90,16 @@ footer,
     color: #f3e8ff;
     margin: 0;
     opacity: 0.95;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
-/* Правая колонка (Записка в футере) */
 .footer-personal-note {
     flex: 1.4;
     min-width: 440px;
     max-width: 520px;
     text-align: right;
     padding: 14px 16px 14px 20px;
-    background: rgba(0, 0, 0, 0.4); /* Чуть больше затемнили подложку записки */
+    background: rgba(0, 0, 0, 0.5);
     border-right: 3px solid rgba(192, 132, 252, 0.8);
     border-radius: 12px 0 0 12px;
     box-sizing: border-box;
@@ -105,11 +118,10 @@ footer,
     white-space: normal;
 }
 
-/* Разделитель и нижняя строчка */
 .footer-divider {
     width: 100%;
     height: 1px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
     margin: 10px 0 5px;
 }
 
@@ -120,16 +132,13 @@ footer,
     font-size: 0.8rem;
     color: #d8b4fe;
     opacity: 0.9;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
 }
 
-/* ====================================================== */
-/* Адаптив под мобильные устройства                      */
-/* ====================================================== */
-
+/* Адаптив */
 @media (max-width: 768px) {
     .footer-transition-space {
-        height: 100px; /* Уменьшаем высотный зазор на смартфонах */
+        height: 100px;
     }
 
     footer, 
