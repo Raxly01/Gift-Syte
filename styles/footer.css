@@ -18,8 +18,8 @@ footer,
     position: relative;
     z-index: 10;
     width: 100%;
-    min-height: 550px;
-    padding: 60px 20px 40px;
+    min-height: 1200px;
+    padding: 1000px 20px 40px;
     box-sizing: border-box;
 
     /* Сперва градиент, затем AVIF, а в самом конце — сплошной черный цвет (#000) */
