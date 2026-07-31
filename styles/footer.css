@@ -4,8 +4,10 @@
 
 .footer-transition-space {
     width: 100%;
-    height: 180px; /* Зазор-переход */
-    background: linear-gradient(180deg, #120524 0%, #000000 100%);
+    height: 180px;
+    /* Начинаем с темно-фиолетового тона финала леса и уходим в абсолютно чистый черный #000000 */
+    background: linear-gradient(180deg, #110221 0%, #000000 100%);
+    margin-top: -2px; /* Перекрывает возможный зазор между блоками */
 }
 
 /* ====================================================== */
@@ -25,14 +27,25 @@ footer,
 /* Фоновый контейнер с гифкой Tenor */
 .footer-gif-bg {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     width: 100%;
-    min-width: 600px;
-    opacity: 0.65; /* Регулируй яркость самой гифки здесь */
+    height: 100%;
+    opacity: 0.7; /* Яркость гифки */
     z-index: 1;
-    pointer-events: none; /* Чтобы гифка не перехватывала клики мышкой */
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.footer-gif-bg .tenor-gif-embed,
+.footer-gif-bg iframe,
+.footer-gif-bg img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Центрирует и кадрирует гифку как background-size: cover */
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* Затемняющий слой над гифкой для идеальной читаемости текста */
@@ -171,4 +184,15 @@ footer,
         align-items: center;
         gap: 8px;
     }
+}
+
+footer, 
+.site-footer {
+    position: relative;
+    width: 100%;
+    min-height: 420px; /* Фиксируем комфортную минимальную высоту */
+    padding: 70px 20px 50px; /* Увеличили внутренние отступы сверху и снизу */
+    box-sizing: border-box;
+    overflow: hidden;
+    background: #000000;
 }
