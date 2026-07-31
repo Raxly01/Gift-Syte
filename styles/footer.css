@@ -1,25 +1,39 @@
 /* ====================================================== */
-/* Основной блок футера (Ночной неоново-фиолетовый)        */
+/* 1. Градиентный отступ (Переход из фиолетового в чёрный)*/
+/* ====================================================== */
+
+.footer-transition-space {
+    width: 100%;
+    height: 180px; /* Высота буферной зоны (можно регулировать под себя) */
+    /* Плавный уход из цвета предыдущего блока #120524 в глубокий чёрный #000000 */
+    background: linear-gradient(180deg, #120524 0%, #000000 100%);
+}
+
+/* ====================================================== */
+/* 2. Основной блок футера (Фон-гифка + подложка)         */
 /* ====================================================== */
 
 footer, 
 .site-footer {
     position: relative;
     width: 100%;
-    padding: 50px 20px;
+    padding: 60px 20px 40px;
     box-sizing: border-box;
     z-index: 2;
     
-    /* Градиент из тонов ночного леса и неоновой луны: 
-       от очень тёмного фиолетово-синего через бархатный пурпур к глубокой ночи */
-    background: linear-gradient(180deg, #120524 0%, #2a0845 50%, #0d021a 100%);
-    
-    /* Деликатное сиреневое свечение сверху для связи с лунным светом */
-    border-top: 1px solid rgba(192, 132, 252, 0.3);
-    box-shadow: 0 -12px 30px rgba(168, 85, 247, 0.2);
+    /* Указываем гифку на фон и центрируем её */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), /* Полупрозрачное затемнение над гифкой */
+        url('../images/cake.gif'); /* Замени путь на актуальное имя/расположение твоей гифки */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Верхняя деликатная граница для фиксации стыка */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Основной контейнер футера */
+/* Контейнер футера */
 .footer-container {
     max-width: 900px;
     margin: 0 auto;
@@ -29,7 +43,18 @@ footer,
     gap: 20px;
 }
 
-/* Двухколоночный блок (Слева - Официально, Справа - Записка) */
+/* Бейдж сверху */
+.footer-badge {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(192, 132, 252, 0.4);
+    color: #e9d5ff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    backdrop-filter: blur(5px);
+}
+
+/* Двухколоночный блок */
 .footer-main-content {
     display: flex;
     justify-content: space-between;
@@ -39,7 +64,7 @@ footer,
     margin-top: 10px;
 }
 
-/* Левая колонка (Официально) */
+/* Левая колонка */
 .footer-legal-box {
     flex: 1;
     text-align: left;
@@ -48,9 +73,10 @@ footer,
 .footer-legal {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #c4b5fd; /* Мягкий сиреневый оттенок */
+    color: #f3e8ff;
     margin: 0;
-    opacity: 0.9;
+    opacity: 0.95;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* Правая колонка (Записка в футере) */
@@ -60,22 +86,41 @@ footer,
     max-width: 520px;
     text-align: right;
     padding: 14px 16px 14px 20px;
-    background: rgba(255, 255, 255, 0.04);
-    border-right: 3px solid rgba(192, 132, 252, 0.6);
+    background: rgba(0, 0, 0, 0.4); /* Чуть больше затемнили подложку записки */
+    border-right: 3px solid rgba(192, 132, 252, 0.8);
     border-radius: 12px 0 0 12px;
     box-sizing: border-box;
+    backdrop-filter: blur(4px);
 }
 
 .footer-personal-note p {
     margin: 3px 0;
     font-size: 0.82rem;
     line-height: 1.5;
-    color: #d8b4fe;
+    color: #ffffff;
     font-style: italic;
     letter-spacing: 0.1px;
-    opacity: 0.9;
-    text-shadow: 0 0 8px rgba(168, 85, 247, 0.3);
+    opacity: 0.95;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
     white-space: normal;
+}
+
+/* Разделитель и нижняя строчка */
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 10px 0 5px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.8rem;
+    color: #d8b4fe;
+    opacity: 0.9;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 /* ====================================================== */
@@ -83,9 +128,13 @@ footer,
 /* ====================================================== */
 
 @media (max-width: 768px) {
+    .footer-transition-space {
+        height: 100px; /* Уменьшаем высотный зазор на смартфонах */
+    }
+
     footer, 
     .site-footer {
-        padding: 35px 15px;
+        padding: 40px 15px 25px;
     }
 
     .footer-main-content {
@@ -103,8 +152,14 @@ footer,
         width: 100%;
         text-align: center;
         border-right: none;
-        border-bottom: 2px solid rgba(192, 132, 252, 0.6);
+        border-bottom: 2px solid rgba(192, 132, 252, 0.8);
         border-radius: 0 0 12px 12px;
         padding: 12px 15px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
     }
 }
