@@ -164,30 +164,19 @@ footer,
         gap: 8px;
     }
 }
-
 footer, 
 .site-footer {
     position: relative;
-    width: 100%;
+    z-index: 10; /* Поднимаем футер над предыдущими блоками */
     
-    /* 1. Задаем большую минимальную высоту, чтобы футер "расперло" вниз */
-    min-height: 650px; /* Было ~450px — увеличиваем до 600-700px */
+    /* Добавляем плотный чистый черный фон первой строчкой */
+    background-color: #000000 !important; 
     
-    /* 2. Увеличиваем внутренние отступы сверху и снизу для "воздуха" */
-    padding: 90px 20px 60px;
-    box-sizing: border-box;
-
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), 
-        url('../images/cake.gif'); /* Твой файл */
+        url('../images/cake.avif'); /* твой файл */
     
     background-size: cover;
-    
-    /* 3. ВАЖНО: Прижимаем фокус изображения к НИЗУ или ЦЕНТРУ */
-    background-position: center bottom; /* Показывает именно нижнюю часть картинки с тортом */
+    background-position: center bottom;
     background-repeat: no-repeat;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
